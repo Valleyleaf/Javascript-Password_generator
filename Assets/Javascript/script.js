@@ -14,7 +14,7 @@ var specialcontainer = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "
 // https://www.w3schools.com/jsref/jsref_parseint.asp. Double 
 function getPassword(){
   let lengthContainer = parseInt(prompt("How many characters do you wish for?"), 10) 
-  console.log("lengthcontainer", lengthContainer)
+
   // The below if statement checks to ensure that the user puts in a number and not letters or symbols when asking for the
   // password length.
   if (isNaN(lengthContainer)){ 
@@ -32,15 +32,15 @@ function getPassword(){
   }
 // These variables are booleans that will ask conditions from the user and how complex they want their password to be.
   let doesitlowercase = confirm("Do you want lowercases?")
-    console.log("value1 ", doesitlowercase)
+
 
   let doesituppercase = confirm("Do you want uppercases?")
-    console.log("value2 ", doesituppercase)
+
 
   let doesitnumeric = confirm("Do you want numbers?")
-    console.log("value3 ", doesitnumeric)
+
   let doesitspecial = confirm("Do you want special characters?")
-    console.log("value1 ", doesitspecial)
+
 
 
   var completedpassword = {lengthContainer: lengthContainer, doesitlowercase: doesitlowercase,
@@ -57,12 +57,10 @@ function generatePassword(){
   let option = getPassword()
   var MasterPasswordArray = []
   if (!option){
-    console.log("generatePassword returned null")
     return null;   
   } else if(option.doesitlowercase === false && option.doesituppercase === false && option.doesitnumeric === false 
     && option.doesitspecial === false){
     window.alert("You need to include one selection, please try again.")
-    console.log("Did we hit the else if?")
     var Error = document.querySelector("#password")
     Error.value = "Please try again"
     return Error.value;
@@ -70,26 +68,21 @@ function generatePassword(){
   else {
       if (option.doesitlowercase === true){
         MasterPasswordArray.push(...lowercasecontainer);
-        console.log("Password includes lowercase");
       }
       if (option.doesituppercase === true){
         MasterPasswordArray.push(...uppercasecontainer);
-        console.log("Password includes uppercasecase");
       }
       if (option.doesitnumeric === true){
         MasterPasswordArray.push(...numericcontainer);
-        console.log("Password includes numbers");
       }
       if (option.doesitspecial === true){
         MasterPasswordArray.push(...specialcontainer);
-        console.log("Password includes special characters");
       }
 
 // For the below I referenced this https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array and
 // copied some code from one of our previous activities. I also include an IF statement if someone was to select "no" to all
 // of the options in building out their password.
   var finalpassword = "";
-  console.log("Finalpassword", finalpassword);
   for (var i = 0; i < option.lengthContainer; i++){
     var randompassword = Math.floor(Math.random() * MasterPasswordArray.length);
     finalpassword +=MasterPasswordArray[randompassword]
