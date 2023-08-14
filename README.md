@@ -1,4 +1,4 @@
-##Description
+###Description
 This project is my first attempt at Javascript. This project was very challenging as it cascades in the opposite direction of what I am used to with other languages such as python.
 
 
