@@ -59,7 +59,15 @@ function generatePassword(){
   if (!option){
     console.log("generatePassword returned null")
     return null;   
-  } else {
+  } else if(option.doesitlowercase === false && option.doesituppercase === false && option.doesitnumeric === false 
+    && option.doesitspecial === false){
+    window.alert("You need to include one selection, please try again.")
+    console.log("Did we hit the else if?")
+    var Error = document.querySelector("#password")
+    Error.value = "Please try again"
+    return Error.value;
+  }
+  else {
       if (option.doesitlowercase === true){
         MasterPasswordArray.push(...lowercasecontainer);
         console.log("Password includes lowercase");
@@ -81,17 +89,12 @@ function generatePassword(){
 // copied some code from one of our previous activities. I also include an IF statement if someone was to select "no" to all
 // of the options in building out their password.
   var finalpassword = "";
+  console.log("Finalpassword", finalpassword);
   for (var i = 0; i < option.lengthContainer; i++){
     var randompassword = Math.floor(Math.random() * MasterPasswordArray.length);
     finalpassword +=MasterPasswordArray[randompassword]
   }
-  if (finalpassword === "undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefinedundefined"){
-    window.alert("You need to include one selection, please try again.")
-    return finalpassword = "Please try again";
-  } else{
-    console.log("Passwordresult:",finalpassword)
     return finalpassword;
-    }
   }
 
 }
