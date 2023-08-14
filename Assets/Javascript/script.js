@@ -33,15 +33,11 @@ function getPassword(){
 // These variables are booleans that will ask conditions from the user and how complex they want their password to be.
   let doesitlowercase = confirm("Do you want lowercases?")
 
-
   let doesituppercase = confirm("Do you want uppercases?")
-
 
   let doesitnumeric = confirm("Do you want numbers?")
 
   let doesitspecial = confirm("Do you want special characters?")
-
-
 
   var completedpassword = {lengthContainer: lengthContainer, doesitlowercase: doesitlowercase,
   doesituppercase: doesituppercase, doesitnumeric: doesitnumeric, doesitspecial: doesitspecial,}
@@ -91,17 +87,12 @@ function generatePassword(){
   }
 
 }
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
